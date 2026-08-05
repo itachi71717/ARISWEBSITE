@@ -23,7 +23,7 @@ export function About() {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
-          {/* Founder portrait */}
+          {/* Brand design process imagery */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -33,9 +33,10 @@ export function About() {
           >
             <div className="relative w-full max-w-md mx-auto aspect-[3/4] overflow-hidden">
               <img
-                src="/solstice-founder.jpg"
-                alt="Ariella Sadie, founder of Solstice Design Studio, sketching brand concepts at her studio desk"
+                src="/solstice-brand-flatlay.jpg"
+                alt="Brand identity design process — colour swatches, logo mark sketches, and design tools on a studio desk"
                 className="w-full h-full object-cover"
+                style={{ objectPosition: "50% 75%" }}
               />
 
               {/* Outer fine border */}

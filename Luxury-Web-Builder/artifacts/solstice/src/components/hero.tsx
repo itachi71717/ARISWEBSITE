@@ -7,6 +7,23 @@ export function Hero() {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  // Deterministic scattered crescent moons — small, varied, spread across the whole hero
+  const moons = React.useMemo(() => {
+    const positions = [
+      { top: "8%",  left: "10%", size: 60,  rotate: -8,  opacity: 0.12 },
+      { top: "16%", left: "82%", size: 90,  rotate: 15,  opacity: 0.10 },
+      { top: "38%", left: "4%",  size: 50,  rotate: 22,  opacity: 0.09 },
+      { top: "30%", left: "48%", size: 70,  rotate: -12, opacity: 0.08 },
+      { top: "58%", left: "88%", size: 65,  rotate: 30,  opacity: 0.11 },
+      { top: "72%", left: "20%", size: 100, rotate: -18, opacity: 0.10 },
+      { top: "82%", left: "62%", size: 55,  rotate: 10,  opacity: 0.09 },
+      { top: "10%", left: "58%", size: 45,  rotate: -25, opacity: 0.08 },
+      { top: "50%", left: "68%", size: 48,  rotate: 5,   opacity: 0.07 },
+      { top: "88%", left: "40%", size: 62,  rotate: -6,  opacity: 0.09 },
+    ];
+    return positions;
+  }, []);
+
   // Deterministic star positions — more stars, more variety
   const stars = React.useMemo(() => {
     const positions = [
@@ -121,40 +138,27 @@ export function Hero() {
         }}
       />
 
-      {/* === CRESCENT MOON — top left, large and atmospheric === */}
-      <div
-        className="absolute pointer-events-none"
-        style={{ top: "-2%", left: "-4%", width: "clamp(220px, 28vw, 400px)", opacity: 0.13 }}
-      >
-        <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Crescent moon shape */}
-          <path
-            d="M220 150C220 216.274 166.274 270 100 270C78.5 270 58.5 264 41.5 253.5C71 248 96 232 113.5 209C131 186 140 157 140 126C140 95 131 66 113.5 43C96 20 71 4 41.5 -1.5C58.5 -11 78.5 -18 100 -18C166.274 -18 220 83.726 220 150Z"
-            fill="#C9A87C"
-          />
-          {/* Star sparkles near the moon */}
-          <path
-            d="M240 60 L243 68 L251 71 L243 74 L240 82 L237 74 L229 71 L237 68Z"
-            fill="#C6A15B"
-            opacity="0.8"
-          />
-          <path
-            d="M265 110 L267 115 L272 117 L267 119 L265 124 L263 119 L258 117 L263 115Z"
-            fill="#C6A15B"
-            opacity="0.6"
-          />
-          <path
-            d="M250 30 L251.5 34 L255.5 35.5 L251.5 37 L250 41 L248.5 37 L244.5 35.5 L248.5 34Z"
-            fill="#C9A87C"
-            opacity="0.7"
-          />
-          {/* Subtle sunburst lines */}
-          <line x1="235" y1="150" x2="270" y2="140" stroke="#C6A15B" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
-          <line x1="238" y1="165" x2="274" y2="165" stroke="#C6A15B" strokeWidth="1" strokeLinecap="round" opacity="0.4" />
-          <line x1="235" y1="180" x2="268" y2="192" stroke="#C6A15B" strokeWidth="1" strokeLinecap="round" opacity="0.3" />
-          <line x1="232" y1="130" x2="264" y2="116" stroke="#C6A15B" strokeWidth="1" strokeLinecap="round" opacity="0.4" />
-        </svg>
-      </div>
+      {/* === SCATTERED CRESCENT MOONS — small and spread across the whole background === */}
+      {moons.map((moon, i) => (
+        <div
+          key={i}
+          className="absolute pointer-events-none"
+          style={{
+            top: moon.top,
+            left: moon.left,
+            width: `${moon.size}px`,
+            opacity: moon.opacity,
+            transform: `rotate(${moon.rotate}deg)`,
+          }}
+        >
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M73.3 50C73.3 72.1 55.4 90 33.3 90C26.2 90 19.5 88 13.8 84.5C23.7 82.7 32 77.3 37.8 69.7C43.7 62 47 52.3 47 42C47 31.7 43.7 22 37.8 14.3C32 6.7 23.7 1.3 13.8 -0.5C19.5 -4 26.2 -6 33.3 -6C55.4 -6 73.3 27.9 73.3 50Z"
+              fill="#C9A87C"
+            />
+          </svg>
+        </div>
+      ))}
 
       {/* === STARFIELD === */}
       {stars.map((star, i) => (

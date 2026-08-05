@@ -167,6 +167,9 @@ importers:
         specifier: ^3.25.76
         version: 3.25.76
     devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 25.9.5
       '@types/nodemailer':
         specifier: ^8.0.1
         version: 8.0.1

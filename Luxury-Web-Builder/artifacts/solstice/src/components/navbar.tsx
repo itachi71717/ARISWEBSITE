@@ -42,20 +42,7 @@ export function Navbar() {
             : "bg-transparent py-6"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-          <a
-            href="#top"
-            onClick={(e) => scrollToSection(e, "top")}
-            className="flex-shrink-0 z-50"
-            data-testid="link-home-logo"
-          >
-            <img
-              src="/solstice-logo.jpeg"
-              alt="Solstice Design Studio"
-              className="h-[44px] w-auto object-contain"
-            />
-          </a>
-
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-center relative">
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-12">
             <div className="flex items-center space-x-8">
@@ -71,7 +58,7 @@ export function Navbar() {
                 </a>
               ))}
             </div>
-            
+
             <div className="flex items-center space-x-5">
               <a
                 href="https://www.instagram.com/sols.ticedesigns"
@@ -98,7 +85,7 @@ export function Navbar() {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden z-50 text-charcoal p-2 -mr-2"
+            className="md:hidden z-50 text-charcoal p-2 absolute right-6"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle Menu"
             data-testid="button-mobile-menu"

@@ -60,9 +60,11 @@ export function Services() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-10">
           {services.map((service, index) => {
             const Icon = service.icon;
+            const isSecondToLastInDanglingRow =
+              services.length % 3 === 2 && index === services.length - 2;
             return (
               <motion.div
                 key={service.title}
@@ -71,7 +73,9 @@ export function Services() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -4 }}
-                className="group flex flex-col bg-ivory border border-transparent hover:border-solstice-gold/30 hover:shadow-[0_8px_30px_rgba(198,161,91,0.15)] transition-all duration-300"
+                className={`group flex flex-col bg-ivory border border-transparent hover:border-solstice-gold/30 hover:shadow-[0_8px_30px_rgba(198,161,91,0.15)] transition-all duration-300 lg:col-span-2 ${
+                  isSecondToLastInDanglingRow ? "lg:col-start-2" : ""
+                }`}
               >
                 <div className="aspect-[4/3] w-full overflow-hidden p-3 pb-0">
                   <div className="w-full h-full relative overflow-hidden shadow-sm">

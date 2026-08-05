@@ -1,0 +1,14 @@
+{
+  "buildCommand": "pnpm --filter @workspace/solstice run build",
+  "installCommand": "pnpm install",
+  "outputDirectory": "artifacts/solstice/dist/public",
+  "build": {
+    "env": {
+      "PORT": "3000",
+      "BASE_PATH": "/"
+    }
+  },
+  "rewrites": [
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  ]
+}

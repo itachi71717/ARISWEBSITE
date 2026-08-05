@@ -20,6 +20,37 @@ export function Hero() {
       { top: "10%", left: "58%", size: 45,  rotate: -25, opacity: 0.08 },
       { top: "50%", left: "68%", size: 48,  rotate: 5,   opacity: 0.07 },
       { top: "88%", left: "40%", size: 62,  rotate: -6,  opacity: 0.09 },
+      { top: "4%",  left: "35%", size: 40,  rotate: 18,  opacity: 0.08 },
+      { top: "24%", left: "20%", size: 55,  rotate: -30, opacity: 0.07 },
+      { top: "44%", left: "92%", size: 48,  rotate: 12,  opacity: 0.10 },
+      { top: "62%", left: "6%",  size: 70,  rotate: -15, opacity: 0.08 },
+      { top: "94%", left: "78%", size: 58,  rotate: 24,  opacity: 0.09 },
+      { top: "20%", left: "68%", size: 42,  rotate: -20, opacity: 0.07 },
+      { top: "78%", left: "48%", size: 50,  rotate: 8,   opacity: 0.08 },
+      { top: "2%",  left: "88%", size: 46,  rotate: -10, opacity: 0.09 },
+    ];
+    return positions;
+  }, []);
+
+  // Deterministic scattered suns — small radiating marks, spread across the whole hero
+  const suns = React.useMemo(() => {
+    const positions = [
+      { top: "12%", left: "28%", size: 34, rotate: 0,   opacity: 0.10 },
+      { top: "6%",  left: "68%", size: 26, rotate: 12,  opacity: 0.09 },
+      { top: "28%", left: "90%", size: 30, rotate: -8,  opacity: 0.08 },
+      { top: "34%", left: "36%", size: 22, rotate: 20,  opacity: 0.07 },
+      { top: "46%", left: "14%", size: 28, rotate: -15, opacity: 0.09 },
+      { top: "54%", left: "58%", size: 32, rotate: 6,   opacity: 0.08 },
+      { top: "64%", left: "80%", size: 24, rotate: -22, opacity: 0.09 },
+      { top: "68%", left: "32%", size: 30, rotate: 14,  opacity: 0.07 },
+      { top: "76%", left: "8%",  size: 26, rotate: -5,  opacity: 0.08 },
+      { top: "84%", left: "56%", size: 34, rotate: 10,  opacity: 0.09 },
+      { top: "90%", left: "88%", size: 24, rotate: -18, opacity: 0.07 },
+      { top: "18%", left: "48%", size: 20, rotate: 25,  opacity: 0.06 },
+      { top: "40%", left: "76%", size: 28, rotate: -12, opacity: 0.08 },
+      { top: "58%", left: "4%",  size: 26, rotate: 8,   opacity: 0.07 },
+      { top: "96%", left: "24%", size: 30, rotate: -6,  opacity: 0.08 },
+      { top: "2%",  left: "12%", size: 22, rotate: 16,  opacity: 0.07 },
     ];
     return positions;
   }, []);
@@ -156,6 +187,37 @@ export function Hero() {
               d="M73.3 50C73.3 72.1 55.4 90 33.3 90C26.2 90 19.5 88 13.8 84.5C23.7 82.7 32 77.3 37.8 69.7C43.7 62 47 52.3 47 42C47 31.7 43.7 22 37.8 14.3C32 6.7 23.7 1.3 13.8 -0.5C19.5 -4 26.2 -6 33.3 -6C55.4 -6 73.3 27.9 73.3 50Z"
               fill="#C9A87C"
             />
+          </svg>
+        </div>
+      ))}
+
+      {/* === SCATTERED SUNS — small radiating marks, spread across the whole background === */}
+      {suns.map((sun, i) => (
+        <div
+          key={i}
+          className="absolute pointer-events-none"
+          style={{
+            top: sun.top,
+            left: sun.left,
+            width: `${sun.size}px`,
+            opacity: sun.opacity,
+            transform: `rotate(${sun.rotate}deg)`,
+          }}
+        >
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="16" fill="#C6A15B" />
+            {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => (
+              <line
+                key={angle}
+                x1={50 + 22 * Math.cos((angle * Math.PI) / 180)}
+                y1={50 + 22 * Math.sin((angle * Math.PI) / 180)}
+                x2={50 + 42 * Math.cos((angle * Math.PI) / 180)}
+                y2={50 + 42 * Math.sin((angle * Math.PI) / 180)}
+                stroke="#C6A15B"
+                strokeWidth="4"
+                strokeLinecap="round"
+              />
+            ))}
           </svg>
         </div>
       ))}

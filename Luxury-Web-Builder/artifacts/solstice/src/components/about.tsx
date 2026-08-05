@@ -21,7 +21,7 @@ export function About() {
   return (
     <section id="about" className="py-24 md:py-32 bg-ivory">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24 items-center">
 
           {/* Brand design process imagery */}
           <motion.div
@@ -29,9 +29,9 @@ export function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="relative hidden lg:flex items-center justify-center"
+            className="relative flex items-center justify-center"
           >
-            <div className="relative w-full max-w-md mx-auto aspect-[3/4] overflow-hidden">
+            <div className="relative w-full max-w-md mx-auto aspect-[4/3] lg:aspect-[3/4] overflow-hidden">
               <img
                 src="/solstice-brand-flatlay.jpg"
                 alt="Brand identity design process — colour swatches, logo mark sketches, and design tools on a studio desk"

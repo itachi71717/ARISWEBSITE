@@ -34,6 +34,17 @@ const services = [
   },
 ];
 
+export const PREFILL_CONTACT_EVENT = "solstice:prefill-contact";
+
+function requestContactForService(serviceTitle: string) {
+  window.dispatchEvent(
+    new CustomEvent(PREFILL_CONTACT_EVENT, {
+      detail: { message: `I need help with ${serviceTitle}.` },
+    })
+  );
+  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+}
+
 export function Services() {
   return (
     <section id="services" className="py-24 md:py-32 bg-white relative">
@@ -73,7 +84,18 @@ export function Services() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -4 }}
-                className={`group flex flex-col bg-ivory border border-transparent hover:border-solstice-gold/30 hover:shadow-[0_8px_30px_rgba(198,161,91,0.15)] transition-all duration-300 lg:col-span-2 ${
+                onClick={() => requestContactForService(service.title)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    requestContactForService(service.title);
+                  }
+                }}
+                aria-label={`Enquire about ${service.title}`}
+                data-testid={`card-service-${service.title.toLowerCase().replace(/\s+/g, "-")}`}
+                className={`group flex flex-col bg-ivory border border-transparent hover:border-solstice-gold/30 hover:shadow-[0_8px_30px_rgba(198,161,91,0.15)] transition-all duration-300 cursor-pointer lg:col-span-2 ${
                   isSecondToLastInDanglingRow ? "lg:col-start-2" : ""
                 }`}
               >

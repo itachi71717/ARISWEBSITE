@@ -5,6 +5,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { useSubmitContact } from "@workspace/api-client-react";
+import { PREFILL_CONTACT_EVENT } from "./services";
 
 const contactSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -24,9 +25,21 @@ export function Contact() {
     handleSubmit,
     formState: { errors },
     reset,
+    setValue,
+    setFocus,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
   });
+
+  React.useEffect(() => {
+    const handlePrefill = (e: Event) => {
+      const { message } = (e as CustomEvent<{ message: string }>).detail;
+      setValue("message", message, { shouldValidate: true });
+      setFocus("message");
+    };
+    window.addEventListener(PREFILL_CONTACT_EVENT, handlePrefill);
+    return () => window.removeEventListener(PREFILL_CONTACT_EVENT, handlePrefill);
+  }, [setValue, setFocus]);
 
   const onSubmit = (data: ContactFormData) => {
     setIsError(false);

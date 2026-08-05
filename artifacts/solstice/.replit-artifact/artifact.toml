@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Solstice Design Studio"
+description = "A luxury single-page brand identity and graphic design studio website for Solstice Design Studio, founded by Ariella Sadie. Features animated hero, about, services, colour palette showcase, and contact form with email backend."
+version = "1.0.0"
+id = "artifacts/solstice"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22229
+
+[services.development]
+run = "pnpm --filter @workspace/solstice run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/solstice", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/solstice/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22229"
+BASE_PATH = "/"

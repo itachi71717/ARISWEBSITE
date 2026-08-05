@@ -1,0 +1,80 @@
+Build a full-stack, modern luxury single-page website for "Solstice Design Studio," a brand identity and graphic design studio founded by Ariella Sadie. Tagline: "Timeless Design. Lasting Impact." Use React with Tailwind CSS for the frontend and a simple Node/Express backend (or Replit's built-in server) to handle the contact form submission. Use a sophisticated, editorial, high-end aesthetic — elegant serif headings, generous whitespace, subtle gold accents, and smooth scroll-based animations throughout (fade-ins, subtle parallax on scroll). Fully responsive and mobile-optimized, tested to work smoothly across all breakpoints (mobile, tablet, desktop).
+
+Do not invent any services, locations, contact details, or claims that are not explicitly listed below. Only use the exact information provided in this prompt.
+
+**Logo:** I will upload the brand's actual logo image (a monogram "S" set inside a crescent moon on the left and a sunburst with a star on the right, in black and gold on an ivory background) into the project's assets folder. Use a crisp, high-quality, unfiltered `<img>` element wherever the logo appears — in the nav (top left, ~40-50px height, full clarity, no blur, no low opacity), in the hero section (large, ~120px, centered above the brand name, full clarity), and in the footer (full clarity). In the hero background only, you may place ONE additional large, subtle decorative echo of the logo's moon/sunburst motif (not the full logo with text) at very low opacity in the top-left corner, purely as an ambient design element behind the content — this decorative echo must never be confused with or replace the actual crisp logo used in the nav/hero/footer. Add clear code comments marking every spot where the real logo image file needs to be inserted, noting it must render sharp and clear, never blurry or hard to see.
+
+**Color palette (use as CSS/Tailwind variables):**
+- Ivory: #F5F0EA (background base)
+- Sandstone: #C9A87C
+- Taupe: #A69C94
+- Solstice Gold: #C6A15B (accent/CTA color)
+- Charcoal: #1A1A1A (text/dark sections)
+- Slate Grey: #6E7075
+
+**Fonts:** an elegant serif for headings (e.g. Playfair Display or Cormorant), a clean minimal sans-serif for body text (e.g. Inter or Montserrat), with wide letter-spacing on labels/nav, matching a luxury monogram-logo brand. Load these via Google Fonts.
+
+**Header/Nav:** Fixed transparent nav that turns solid ivory on scroll, with a smooth transition. Crisp, clear logo image on the left (~40-50px height, alt text "Solstice Design Studio logo"). Nav links: Home, About, Services, Contact, each smooth-scrolling to their section. Include small Instagram and WhatsApp icon buttons on the right side of the nav. On mobile, collapse nav links into a hamburger menu that opens a full-screen ivory overlay menu.
+
+**Hero Section:**
+- Full-viewport height hero with an animated luxury background: soft moving gradient (ivory, sandstone, gold tones) combined with a subtle animated starfield/sparkle particle effect and a very slow, gentle pulsing glow. Animation should be slow, ambient, elegant, not flashy or distracting — just enough movement so it doesn't feel static (slow drifting light rays, twinkling stars, gentle gradient shift on a 15-20s loop, subtle floating particles). Build this with CSS animations/keyframes or Framer Motion — keep it performant.
+- A subtle, low-opacity decorative moon/sunburst motif echo sits in the top-left of the background as described above — decorative only, not the readable logo.
+- Centered content: crisp full-opacity logo image (~120px), then "SOLSTICE" in large serif letter-spaced type, "DESIGN STUDIO" as a smaller subtitle beneath it, then the tagline "Timeless Design. Lasting Impact." in italics below.
+- A gold-outlined CTA button "Let's Create Something Timeless" that smooth-scrolls to the Contact section, with a hover glow/scale animation.
+- On mobile, reduce text size gracefully, keep the animated background performant (fewer particles), scale the decorative motif down proportionally, and keep the CTA and main logo centered and fully visible without overlap.
+
+**About Section:**
+- Two-column layout on desktop (stacks to single column on mobile). Left: a portrait-style image placeholder of the founder at her desk (alt text "Ariella Sadie, founder of Solstice Design Studio"). Right: "Meet the Designer" small heading label, "Hi, I'm Ariella Sadie" large serif subheading, title line "Founder & Brand Identity Designer."
+- Three short blocks each with a small icon (person icon, heart icon, sparkle icon):
+  - "My Story" — "I'm the designer behind Solstice Design Studio. I help businesses build timeless, strategic brands that stand out and leave a lasting impression."
+  - "Why I Started" — "I started Solstice with one goal: to help businesses turn their ideas into brands that connect, inspire, and create impact."
+  - "My Design Philosophy" — "Great design isn't just about how it looks — it's about how it works and how it makes people feel. I believe in thoughtful, intentional design that tells your story, builds trust, and stands the test of time."
+- A small gold-bordered callout box: "Why 'Solstice'? A solstice marks a turning point — a time of change, alignment, and new possibilities. That's exactly what I hope to create for every client: a brand that marks the beginning of something meaningful."
+- Subtle scroll-reveal fade/slide-up animation as this section enters the viewport.
+
+**Services Section ("What I Offer") — use exactly these 5 services, nothing else, no brand strategy, no web design, no digital experiences:**
+- Section heading "What I Offer" with subheading "Every memorable business starts with a strong identity."
+- Responsive grid of exactly 5 service cards (3 columns desktop, 2 columns tablet, 1 column mobile). Each card has an image thumbnail at the top (rounded corners, soft shadow) that visually represents that specific service, plus a small icon, a title, and a one-line description:
+  1. Logo Design — image showing an example of a polished monogram/logo design mockup — "Crafting distinctive marks that capture your brand's essence."
+  2. Brand Identity — image showing a cohesive brand identity mockup (business card, stationery, or brand board style) — "Building a cohesive visual system your business can grow into."
+  3. Colour Palettes — image showing a set of curated color swatches — "Intentional color stories that create trust and recognition."
+  4. Email Signatures — image showing a styled email signature mockup — "Polished, professional touches for everyday communication."
+  5. Social Media Graphics — image showing a styled social media post/graphic mockup — "Scroll-stopping visuals designed to elevate your feed."
+- Use tasteful, relevant placeholder image URLs for each thumbnail matching its service (not generic/unrelated stock photos).
+- Cards should have a subtle hover lift/scale animation with a gold border glow on desktop, and tap-friendly sizing on mobile.
+
+**Colour Palette Showcase (sub-section directly after Services):**
+- Heading "Our Colour Palette" with subheading "Every colour has a purpose. Every shade tells a story."
+- Responsive row/grid of 6 circular color swatches, labeled with name and short descriptor, wrapping to 2-3 columns on mobile:
+  - Ivory — "Clean, Elegant"
+  - Sandstone — "Warm, Natural"
+  - Taupe — "Balanced, Calm"
+  - Solstice Gold — "Creative, Confident"
+  - Charcoal — "Strong, Impactful"
+  - Slate Grey — "Modern, Reliable"
+
+**Contact Section:**
+- Heading: "Let's Create Something Timeless Together"
+- A fully functional contact form with fields: Name (required), Phone Number (required), and a large textarea labeled "Tell me about your project" with placeholder text "e.g. I have a business and I'd love help managing my social media graphics..." (required).
+- On submit, actually send the form data via email to **Solisticedesigns@gmail.com** (this is the only correct email address to use anywhere on the site). Since this is running on Replit with backend capability, implement a working backend route (Node/Express) that sends the email using Nodemailer (or an equivalent mail-sending library), reading credentials from Replit Secrets/environment variables (e.g. EMAIL_USER, EMAIL_PASS) rather than hardcoding them — add a clear comment explaining I need to set these secrets in the Replit "Secrets" panel to make it work.
+- Client-side validation (required fields, disable submit button while sending, inline error messages for empty fields).
+- On success: replace the form with "Thank you! Your message has been sent — I'll be in touch soon." On failure: "Something went wrong. Please try again or reach out via WhatsApp or Instagram below."
+- Below the form, two large tappable icon-only buttons side by side, with no visible number or URL text anywhere on the page:
+  - WhatsApp icon button linking to `https://wa.me/27604097325?text=Hi%20Ariella%2C%20I%27d%20love%20to%20chat%20about%20a%20branding%20project!`, opening in a new tab.
+  - Instagram icon button linking to `https://www.instagram.com/sols.ticedesigns`, opening in a new tab.
+  - Both icons have a hover/tap animation (scale + gold glow) and a minimum 44x44px touch target.
+
+**Footer:**
+- Ivory-on-charcoal footer with crisp clear logo image, tagline "Timeless Design. Lasting Impact.", the line "Founded by Ariella Sadie," email link (Solisticedesigns@gmail.com — the only email used anywhere on the site), Instagram and WhatsApp icons repeated (icon-only, no visible number or link text), and copyright line "© 2026 Solstice Design Studio." Do not include any physical address or location claim anywhere on the site. Stack footer columns vertically and center content on mobile.
+
+**General requirements:**
+- Build this as a complete, runnable Replit project with a working dev server (package.json, all dependencies installed, ready to click "Run").
+- Fully responsive across all screen sizes with no layout breaking, overlapping text, or horizontal scroll on mobile; test all sections at mobile widths down to 375px.
+- Smooth scroll behavior for all anchor/nav links.
+- Use Framer Motion (or equivalent CSS animations) for scroll-reveal animations on each section as it enters the viewport.
+- Clean, semantic, accessible HTML with proper alt text on all images and ARIA labels on icon-only buttons/links (e.g. aria-label="Chat on WhatsApp", aria-label="Visit Instagram").
+- Ensure the WhatsApp and Instagram links function correctly, open in new tabs, and never render the raw phone number or Instagram URL as visible text anywhere on the page.
+- The only email address anywhere on the site is Solisticedesigns@gmail.com — do not generate or display any other email address.
+- Do not include any location, city, or "worldwide" claim anywhere on the site.
+- Do not include brand strategy, web design, or digital experience services anywhere — only the 5 listed services.
+- Leave clear placeholder comments in the code anywhere I need to swap in my real logo file, real service images, and my real email-sending credentials (Replit Secrets).

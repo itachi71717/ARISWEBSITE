@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ariswebsite-six.vercel.app/sitemap.xml
+Sitemap: https://www.solsticedesigns.co.za/sitemap.xml

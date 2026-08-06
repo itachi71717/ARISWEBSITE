@@ -81,7 +81,7 @@ export function Contact() {
             <div className="bg-white p-12 text-center border border-solstice-gold/30">
               <h3 className="font-serif text-2xl text-charcoal mb-4">Thank you!</h3>
               <p className="font-sans text-slate text-lg">
-                Your message has been sent — I'll be in touch soon.
+                Your message has been sent. I'll be in touch soon.
               </p>
             </div>
           ) : (

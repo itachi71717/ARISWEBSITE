@@ -104,7 +104,7 @@ export function About() {
                 <div>
                   <h4 className="font-serif text-xl text-charcoal mb-2">My Design Philosophy</h4>
                   <p className="font-sans text-slate leading-relaxed">
-                    Great design isn't just about how it looks — it's about how it works and how it makes people feel. I believe in thoughtful, intentional design that tells your story, builds trust, and stands the test of time.
+                    Great design isn't just about how it looks. It's about how it works and how it makes people feel. I believe in thoughtful, intentional design that tells your story, builds trust, and stands the test of time.
                   </p>
                 </div>
               </motion.div>
@@ -120,7 +120,7 @@ export function About() {
               <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-solstice-gold" />
               <h4 className="font-serif text-2xl text-charcoal mb-3">Why 'Solstice'?</h4>
               <p className="font-sans text-slate leading-relaxed">
-                A solstice marks a turning point — a time of change, alignment, and new possibilities. That's exactly what I hope to create for every client: a brand that marks the beginning of something meaningful.
+                A solstice marks a turning point, a time of change, alignment, and new possibilities. That's exactly what I hope to create for every client: a brand that marks the beginning of something meaningful.
               </p>
             </motion.div>
           </motion.div>

@@ -255,3 +255,7 @@ html {
   .interactive-hero__visual::before { width: 11%; opacity: .6; }
   .interactive-hero__visual::after { width: 5%; opacity: .55; }
 }
+
+@media (min-width: 901px) {
+  .interactive-hero__visual { background-position: calc(100% - .8vw) -6.47vw; }
+}

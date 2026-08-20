@@ -303,3 +303,56 @@ html {
     background-position: center;
   }
 }
+
+/* Cross-viewport layout stabilization */
+html, body, #root { width: 100%; max-width: 100%; overflow-x: hidden; }
+.interactive-hero { min-height: 0; }
+.interactive-hero__main { height: clamp(520px, 42vw, 680px); min-height: 0; }
+.interactive-hero__copy,
+.interactive-hero__visual { min-height: 0; height: 100%; }
+.interactive-hero__copy { padding-inline: clamp(28px, 6vw, 96px); }
+.interactive-hero h1 { font-size: clamp(58px, 6.4vw, 104px); }
+.interactive-description { max-width: 31rem; }
+
+@media (min-width: 901px) and (max-width: 1180px) {
+  .interactive-nav { padding-inline: 24px; gap: 16px; }
+  .interactive-wordmark { flex-basis: 190px; }
+  .interactive-wordmark strong { font-size: 21px; }
+  .interactive-nav__links { gap: 20px; }
+  .interactive-nav__links a { font-size: 11px; letter-spacing: .1em; }
+  .interactive-nav__actions { flex-basis: 250px; gap: 15px; }
+  .interactive-work { min-width: 170px; padding-inline: 12px; font-size: 10px; }
+  .interactive-hero__copy { padding-inline: 42px; }
+  .interactive-description { font-size: 17px; }
+}
+
+@media (max-width: 900px) {
+  .interactive-nav { position: absolute; }
+  .interactive-hero { padding-top: 78px; }
+  .interactive-hero__main { display: flex; height: auto; min-height: 0; flex-direction: column; }
+  .interactive-hero__copy { order: 1; width: 100%; min-height: 0; height: auto; align-items: center; padding: clamp(56px, 12vw, 84px) 24px clamp(52px, 11vw, 76px); text-align: center; }
+  .interactive-hero__visual { order: 2; width: 100%; height: clamp(340px, 78vw, 520px); min-height: 0; }
+  .interactive-eyebrow { text-align: center; }
+  .interactive-rule { margin-inline: auto; }
+  .interactive-hero h1 { font-size: clamp(52px, 15vw, 82px); letter-spacing: .1em; text-align: center; }
+  .interactive-subtitle { justify-content: center; gap: 14px; width: 100%; margin-block: 24px 30px; font-size: clamp(14px, 4vw, 19px); letter-spacing: .28em; white-space: normal; }
+  .interactive-subtitle i { width: clamp(28px, 10vw, 64px); flex: 0 1 auto; }
+  .interactive-description { width: min(100%, 31rem); margin-inline: auto; font-size: 17px; line-height: 1.65; text-align: center; }
+  .interactive-hero-cta { margin-inline: auto; }
+  .interactive-benefits { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .interactive-benefit { min-width: 0; padding-inline: 10px; }
+  .interactive-benefit p { font-size: 11px; letter-spacing: .1em; }
+}
+
+@media (max-width: 520px) {
+  .interactive-wordmark strong { letter-spacing: .25em; }
+  .interactive-wordmark span { margin-left: 7px; letter-spacing: .32em; }
+  .interactive-menu-toggle { padding: 8px 0 8px 8px; }
+  .interactive-hero__copy { padding-inline: 20px; }
+  .interactive-eyebrow { font-size: 11px; letter-spacing: .18em; }
+  .interactive-description { font-size: 16px; }
+  .interactive-hero__visual { height: min(92vw, 420px); }
+  .interactive-benefits { padding: 16px 8px; }
+  .interactive-benefit { min-height: 112px; padding-inline: 4px; gap: 8px; }
+  .interactive-benefit p { font-size: 10px; line-height: 1.35; }
+}

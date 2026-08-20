@@ -285,3 +285,21 @@ html {
     background-position: 52% 50%;
   }
 }
+
+/* Show the complete supplied hero image inside the block with no cropping */
+.interactive-hero__visual {
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #eee5da;
+}
+.interactive-hero__visual::before,
+.interactive-hero__visual::after {
+  display: none;
+}
+@media (max-width: 900px) {
+  .interactive-hero__visual {
+    background-size: 100% 100%;
+    background-position: center;
+  }
+}

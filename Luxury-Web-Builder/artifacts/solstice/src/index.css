@@ -226,7 +226,7 @@ html {
 .interactive-subtitle i { width: 74px; height: 1px; background: #b8a487; }
 .interactive-description { margin: 0 0 40px; color: #4d453d; font-family: Georgia, 'Times New Roman', serif; font-size: 19px; font-style: italic; line-height: 1.6; }
 .interactive-hero-cta { width: fit-content; padding: 16px 23px; }
-.interactive-hero__visual { min-height: 605px; background-color: #eae1d6; background-image: url('/reference-landing.jpg'); background-repeat: no-repeat; background-position: right center; background-size: auto 100%; }
+.interactive-hero__visual { min-height: 605px; background-color: #eae1d6; background-image: url('/hero-doorway-generated-v2.png'); background-repeat: no-repeat; background-position: right center; background-size: auto 100%; }
 .interactive-benefits { display: grid; min-height: 185px; grid-template-columns: repeat(4, 1fr); align-items: center; background: #f2eae0; }
 .interactive-benefit { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; min-height: 96px; color: #b28a4a; text-align: center; }
 .interactive-benefit p { display: flex; flex-direction: column; gap: 4px; margin: 0; color: #2d2924; font-family: var(--app-font-sans); font-size: 13px; font-weight: 600; letter-spacing: .12em; line-height: 1.45; text-transform: uppercase; }
@@ -288,7 +288,7 @@ html {
 
 /* Show the complete supplied hero image inside the block with no cropping */
 .interactive-hero__visual {
-  background-size: 100% 100%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-color: #eee5da;
@@ -299,7 +299,7 @@ html {
 }
 @media (max-width: 900px) {
   .interactive-hero__visual {
-    background-size: 100% 100%;
+    background-size: cover;
     background-position: center;
   }
 }

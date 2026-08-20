@@ -259,3 +259,29 @@ html {
 @media (min-width: 901px) {
   .interactive-hero__visual { background-position: calc(100% - .8vw) -6.47vw; }
 }
+
+/* Responsive cropped doorway hero asset */
+.interactive-hero__visual {
+  background-size: cover;
+  background-position: 54% 50%;
+  background-color: #eee5da;
+}
+@media (min-width: 901px) {
+  .interactive-hero__visual {
+    background-size: cover;
+    background-position: 54% 50%;
+  }
+}
+@media (max-width: 900px) {
+  .interactive-hero__visual {
+    min-height: clamp(360px, 92vw, 520px);
+    background-size: cover;
+    background-position: 53% 50%;
+  }
+}
+@media (max-width: 520px) {
+  .interactive-hero__visual {
+    min-height: 360px;
+    background-position: 52% 50%;
+  }
+}

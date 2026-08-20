@@ -104,7 +104,7 @@ export function Services() {
                     <img 
                       src={service.image} 
                       alt={service.title}
-                      className={`w-full h-full ${service.title === "Email Signatures" ? "object-contain bg-[#e8ded3]" : "object-cover"} transform group-hover:scale-105 transition-transform duration-700 ease-out`}
+                      className={`w-full h-full object-cover ${service.title === "Email Signatures" ? "object-position-top scale-[1.08]" : ""} transform group-hover:scale-105 transition-transform duration-700 ease-out`}
                     />
                   </div>
                 </div>

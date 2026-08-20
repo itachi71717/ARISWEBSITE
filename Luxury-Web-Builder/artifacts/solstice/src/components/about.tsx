@@ -33,10 +33,10 @@ export function About() {
           >
             <div className="relative w-full max-w-md mx-auto aspect-[4/3] lg:aspect-[3/4] overflow-hidden">
               <img
-                src="/solstice-brand-flatlay.jpg"
-                alt="Brand identity design process: colour swatches, logo mark sketches, and design tools on a studio desk"
+                src="/meet-the-designer-workspace.jpg"
+                alt="Solstice Design Studio workspace with laptop, branded stationery, colour cards, and coffee"
                 className="w-full h-full object-cover"
-                style={{ objectPosition: "50% 75%" }}
+                style={{ objectPosition: "50% 52%" }}
               />
 
               {/* Outer fine border */}

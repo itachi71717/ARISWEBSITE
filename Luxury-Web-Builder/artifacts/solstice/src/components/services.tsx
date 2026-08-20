@@ -18,13 +18,13 @@ const services = [
     title: "Colour Palettes",
     description: "Intentional color stories that create trust and recognition.",
     icon: Palette,
-    image: "/service-colors.jpg",
+    image: "/curated-color-palette.jpg",
   },
   {
     title: "Email Signatures",
     description: "Polished, professional touches for everyday communication.",
     icon: Mail,
-    image: "/service-email.jpg",
+    image: "/email-signatures-workspace.jpg",
   },
   {
     title: "Social Media Graphics",

@@ -169,3 +169,28 @@ html {
 .reference-benefit p { display: flex; flex-direction: column; gap: 4px; margin: 0; color: #2d2924; font-family: var(--app-font-sans); font-size: 13px; font-weight: 600; letter-spacing: .12em; line-height: 1.45; text-transform: uppercase; }
 .reference-benefit i { position: absolute; top: 11px; right: 0; width: 1px; height: 68px; background: #d7c8b6; }
 @media (max-width: 900px) { .reference-nav { height: 78px; padding: 0 24px; } .reference-wordmark { flex-basis: auto; } .reference-wordmark strong { font-size: 19px; } .reference-wordmark span { margin-top: 7px; font-size: 7px; } .reference-nav__links, .reference-nav__actions { display: none; } .reference-menu-button { display: block; margin-left: auto; border: 0; background: transparent; color: #222; } .reference-mobile-menu { position: absolute; top: 78px; right: 0; left: 0; display: flex; flex-direction: column; align-items: center; gap: 25px; padding: 28px; background: #f8f4ee; opacity: 0; pointer-events: none; transform: translateY(-8px); transition: opacity .2s ease, transform .2s ease; } .reference-mobile-menu.is-open { opacity: 1; pointer-events: auto; transform: translateY(0); } .reference-mobile-menu a { color: #222; font-family: var(--app-font-sans); font-size: 13px; letter-spacing: .16em; text-decoration: none; text-transform: uppercase; } .reference-mobile-menu .reference-nav__cta { min-width: 190px; } .reference-hero { min-height: 0; padding-top: 78px; } .reference-hero__content { grid-template-columns: 1fr; } .reference-hero__copy { min-height: 570px; padding: 65px 28px 58px; align-items: center; text-align: center; } .reference-rule { margin-bottom: 30px; } .reference-description { font-size: 17px; } .reference-hero__visual { min-height: 430px; } .reference-arch { top: -20%; right: 5%; width: 90%; height: 115%; } .reference-mark { width: 53%; } .reference-botanical { width: 32%; } .reference-benefits { grid-template-columns: repeat(2, 1fr); padding: 22px 12px; } .reference-benefit { min-height: 130px; } .reference-benefit i { display: none; } }
+
+/* Exact reference-image landing composition */
+.reference-exact-nav { position: absolute; inset: 0 0 auto; z-index: 20; width: 100%; height: min(12.22vw, 110px); pointer-events: none; }
+.reference-hotspot { position: absolute; display: block; pointer-events: auto; background: transparent; border: 0; }
+.reference-hotspot--home { top: 4.7%; left: 33.3%; width: 5.4%; height: 4.6%; }
+.reference-hotspot--about { top: 4.7%; left: 39.4%; width: 5.5%; height: 4.6%; }
+.reference-hotspot--services { top: 4.7%; left: 47.0%; width: 7.1%; height: 4.6%; }
+.reference-hotspot--contact { top: 4.7%; left: 56.0%; width: 7.2%; height: 4.6%; }
+.reference-hotspot--instagram { top: 4.2%; left: 71.8%; width: 2.0%; height: 5.6%; }
+.reference-hotspot--whatsapp { top: 4.2%; left: 74.1%; width: 2.0%; height: 5.6%; }
+.reference-hotspot--work { top: 4.0%; right: 4.6%; width: 13.6%; height: 6.0%; }
+.reference-hero--exact { position: relative; width: 100%; min-height: 0; padding: 0; overflow: hidden; background: #f7f1e9; aspect-ratio: 16 / 9; }
+.reference-hero__exact-image { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.reference-hotspot--hero-cta { top: 68.4%; left: 8.55%; width: 25.0%; height: 5.7%; }
+.reference-hero__exact-benefit-links { position: absolute; right: 0; bottom: 0; left: 0; display: grid; height: 18%; grid-template-columns: repeat(4, 1fr); pointer-events: none; }
+.reference-hero__exact-benefit-links span { pointer-events: auto; }
+@media (max-width: 700px) {
+  .reference-exact-nav { height: 12.2vw; }
+  .reference-hotspot--home { left: 33%; }
+  .reference-hotspot--about { left: 39%; }
+  .reference-hotspot--services { left: 46%; }
+  .reference-hotspot--contact { left: 55%; }
+  .reference-hotspot--instagram, .reference-hotspot--whatsapp, .reference-hotspot--work { display: none; }
+  .reference-hero--exact { aspect-ratio: 16 / 9; min-height: 0; }
+}

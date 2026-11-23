@@ -345,13 +345,22 @@ html, body, #root { width: 100%; max-width: 100%; overflow-x: hidden; }
 }
 
 @media (max-width: 520px) {
-  .interactive-wordmark strong { letter-spacing: .25em; }
-  .interactive-wordmark span { margin-left: 7px; letter-spacing: .32em; }
+  .interactive-nav { height: 66px; padding-inline: 20px; }
+  .interactive-wordmark strong { font-size: 17px; letter-spacing: .25em; }
+  .interactive-wordmark span { margin: 6px 0 0 5px; font-size: 6px; letter-spacing: .3em; }
   .interactive-menu-toggle { padding: 8px 0 8px 8px; }
-  .interactive-hero__copy { padding-inline: 20px; }
-  .interactive-eyebrow { font-size: 11px; letter-spacing: .18em; }
-  .interactive-description { font-size: 16px; }
-  .interactive-hero__visual { height: min(92vw, 420px); }
+  .interactive-hero { padding-top: 66px; }
+  .interactive-hero__visual { order: 0; height: 190px; min-height: 0; background-position: center 43%; }
+  .interactive-hero__copy { order: 1; padding: 24px 20px 28px; }
+  .interactive-eyebrow { display: flex; justify-content: center; gap: .55em; margin: 0 0 14px; font-size: 10px; letter-spacing: .1em; line-height: 1.3; }
+  .interactive-eyebrow span { display: inline; }
+  .interactive-rule { display: none; }
+  .interactive-hero h1 { font-size: clamp(42px, 12vw, 52px); letter-spacing: .08em; }
+  .interactive-subtitle { gap: 10px; margin-block: 8px 14px; font-size: 11px; letter-spacing: .2em; white-space: nowrap; }
+  .interactive-subtitle i { width: clamp(18px, 8vw, 30px); }
+  .interactive-description { margin-bottom: 18px; font-size: 14px; line-height: 1.4; }
+  .interactive-hero-cta { gap: 7px; padding: 11px 12px; font-size: 10px; letter-spacing: .08em; white-space: nowrap; }
+  .interactive-hero-cta svg { width: 13px; height: 13px; }
   .interactive-benefits { padding: 16px 8px; }
   .interactive-benefit { min-height: 112px; padding-inline: 4px; gap: 8px; }
   .interactive-benefit p { font-size: 10px; line-height: 1.35; }

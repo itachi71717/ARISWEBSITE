@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import { z } from "zod";
 
 const SubmitContactBody = z.object({
@@ -36,13 +36,10 @@ export default async function handler(
 
   const { name, phone, message } = parsed.data;
 
-  const emailUser = process.env.EMAIL_USER;
-  const emailPass = process.env.EMAIL_PASS;
+  const resendApiKey = process.env.RESEND_API_KEY;
 
-  if (!emailUser || !emailPass) {
-    console.error(
-      "Contact form email delivery is not configured: EMAIL_USER or EMAIL_PASS is missing.",
-    );
+  if (!resendApiKey) {
+    console.error("Contact form email delivery is not configured: RESEND_API_KEY is missing.");
     res.status(503).json({ error: "Email delivery is temporarily unavailable." });
     return;
   }
@@ -52,16 +49,10 @@ export default async function handler(
     const safePhone = escapeHtml(phone);
     const safeMessage = escapeHtml(message).replace(/\r?\n/g, "<br/>");
     const subjectName = name.replace(/[\r\n]+/g, " ");
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: emailUser,
-        pass: emailPass,
-      },
-    });
+    const resend = new Resend(resendApiKey);
 
-    await transporter.sendMail({
-      from: `"Solstice Design Studio Contact Form" <${emailUser}>`,
+    await resend.emails.send({
+      from: "Solstice Design Studio <onboarding@resend.dev>",
       to: "ariella@solsticedesigns.co.za",
       subject: `New enquiry from ${subjectName}`,
       html: `

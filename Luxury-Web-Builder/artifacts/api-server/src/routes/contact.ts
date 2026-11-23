@@ -10,7 +10,7 @@ const router: IRouter = Router();
 //   EMAIL_USER — your Gmail address (e.g. youraddress@gmail.com)
 //   EMAIL_PASS — your Gmail App Password (generate at https://myaccount.google.com/apppasswords)
 //               NOTE: You must enable 2-Step Verification on the Gmail account first
-// The contact form will send submissions to Solisticedesigns@gmail.com.
+// The contact form will send submissions to ariella@solsticedesigns.co.za.
 
 router.post("/contact", async (req, res): Promise<void> => {
   const parsed = SubmitContactBody.safeParse(req.body);
@@ -51,7 +51,7 @@ router.post("/contact", async (req, res): Promise<void> => {
 
     await transporter.sendMail({
       from: `"Solstice Design Studio Contact Form" <${emailUser}>`,
-      to: "Solisticedesigns@gmail.com",
+      to: "ariella@solsticedesigns.co.za",
       subject: `New enquiry from ${name}`,
       html: `
         <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; color: #1A1A1A;">

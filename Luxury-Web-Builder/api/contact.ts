@@ -49,7 +49,7 @@ export default async function handler(
 
     await transporter.sendMail({
       from: `"Solstice Design Studio Contact Form" <${emailUser}>`,
-      to: "Solisticedesigns@gmail.com",
+      to: "ariella@solsticedesigns.co.za",
       subject: `New enquiry from ${name}`,
       html: `
         <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; color: #1A1A1A;">

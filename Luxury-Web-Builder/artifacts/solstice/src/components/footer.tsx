@@ -23,11 +23,11 @@ export function Footer() {
         </div>
 
         <a
-          href="mailto:Solisticedesigns@gmail.com"
+          href="mailto:ariella@solsticedesigns.co.za"
           className="font-sans text-lg hover:text-solstice-gold transition-colors duration-200 border-b border-transparent hover:border-solstice-gold"
           data-testid="link-footer-email"
         >
-          Solisticedesigns@gmail.com
+          ariella@solsticedesigns.co.za
         </a>
 
         <div className="flex items-center gap-6 pt-4">

@@ -52,7 +52,7 @@ export default async function handler(
     const resend = new Resend(resendApiKey);
 
     const { data, error } = await resend.emails.send({
-      from: "Solstice Design Studio <onboarding@resend.dev>",
+      from: "Solstice Design Studio <noreply@solsticedesigns.co.za>",
       to: "ariella@solsticedesigns.co.za",
       subject: `New enquiry from ${subjectName}`,
       html: `

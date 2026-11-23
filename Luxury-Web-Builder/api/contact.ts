@@ -51,7 +51,7 @@ export default async function handler(
     const subjectName = name.replace(/[\r\n]+/g, " ");
     const resend = new Resend(resendApiKey);
 
-    await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: "Solstice Design Studio <onboarding@resend.dev>",
       to: "ariella@solsticedesigns.co.za",
       subject: `New enquiry from ${subjectName}`,
@@ -70,6 +70,13 @@ export default async function handler(
       text: `New enquiry from ${name}\n\nPhone: ${phone}\n\nMessage:\n${message}`,
     });
 
+    if (error) {
+      console.error("Resend rejected email", error);
+      res.status(500).json({ error: "Failed to send message. Please try again." });
+      return;
+    }
+
+    console.log("Email queued by Resend, id:", data?.id);
     res.status(200).json({ success: true });
   } catch (err) {
     console.error("Failed to send contact form email", err);

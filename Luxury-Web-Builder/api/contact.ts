@@ -8,6 +8,17 @@ const SubmitContactBody = z.object({
   message: z.string().min(1),
 });
 
+const HTML_ESCAPES: Record<string, string> = {
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': "&quot;",
+  "'": "&#39;",
+};
+
+const escapeHtml = (value: string) =>
+  value.replace(/[&<>"']/g, (character) => HTML_ESCAPES[character]);
+
 export default async function handler(
   req: VercelRequest,
   res: VercelResponse,
@@ -29,16 +40,18 @@ export default async function handler(
   const emailPass = process.env.EMAIL_PASS;
 
   if (!emailUser || !emailPass) {
-    console.warn(
-      "EMAIL_USER and EMAIL_PASS are not set. " +
-        "Set them in the Vercel project's environment variables to enable real email delivery. " +
-        "Contact form submission received but not emailed.",
+    console.error(
+      "Contact form email delivery is not configured: EMAIL_USER or EMAIL_PASS is missing.",
     );
-    res.status(200).json({ success: true });
+    res.status(503).json({ error: "Email delivery is temporarily unavailable." });
     return;
   }
 
   try {
+    const safeName = escapeHtml(name);
+    const safePhone = escapeHtml(phone);
+    const safeMessage = escapeHtml(message).replace(/\r?\n/g, "<br/>");
+    const subjectName = name.replace(/[\r\n]+/g, " ");
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -50,15 +63,15 @@ export default async function handler(
     await transporter.sendMail({
       from: `"Solstice Design Studio Contact Form" <${emailUser}>`,
       to: "ariella@solsticedesigns.co.za",
-      subject: `New enquiry from ${name}`,
+      subject: `New enquiry from ${subjectName}`,
       html: `
         <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; color: #1A1A1A;">
           <h2 style="color: #C6A15B; font-size: 24px; margin-bottom: 8px;">New enquiry via Solstice Design Studio</h2>
           <hr style="border: 1px solid #C9A87C; margin-bottom: 24px;" />
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Phone:</strong> ${phone}</p>
+          <p><strong>Name:</strong> ${safeName}</p>
+          <p><strong>Phone:</strong> ${safePhone}</p>
           <p><strong>Message:</strong></p>
-          <p style="background: #F5F0EA; padding: 16px; border-left: 3px solid #C6A15B;">${message.replace(/\n/g, "<br/>")}</p>
+          <p style="background: #F5F0EA; padding: 16px; border-left: 3px solid #C6A15B;">${safeMessage}</p>
           <hr style="border: 1px solid #C9A87C; margin-top: 24px;" />
           <p style="color: #6E7075; font-size: 12px;">Sent from the Solstice Design Studio website contact form.</p>
         </div>
